@@ -1,0 +1,48 @@
+﻿@model WebContato.Models.Contato
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar</h1>
+
+<h4>Contato</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                    <label asp-for="ContatoId" class="control-label"></label>
+                    <input asp-for="ContatoId" class="form-control" />
+                    <span asp-validation-for="ContatoId" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefoneRes" class="control-label"></label>
+                <input asp-for="TelefoneRes" class="form-control" maxlength="8" />
+                <span asp-validation-for="TelefoneRes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefoneCel" class="control-label"></label>
+                <input asp-for="TelefoneCel" class="form-control" maxlength="9"/>
+                <span asp-validation-for="TelefoneCel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar para Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

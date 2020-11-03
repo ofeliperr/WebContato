@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebContato.Models.Contato>
+
+@{
+    ViewData["Title"] = "ContatoController";
+}
+
+<h1>ContatoController</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Contato</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContatoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoneRes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoneCel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContatoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoneRes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoneCel)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new {  id=item.ContatoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.ContatoId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.ContatoId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
