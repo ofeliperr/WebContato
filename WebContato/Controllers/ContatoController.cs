@@ -51,6 +51,11 @@ namespace WebContato.Controllers
             {
                 return Json(new { status = "error", message = "Telefone Residencial inválido!" });
             }
+            if (contato.TelefoneCel is null)
+            {
+                contato.TelefoneCel = "";
+            }
+
             if (ModelState.IsValid)
             {
                 cont.AddContato(contato);
