@@ -83,9 +83,14 @@ namespace WebContato.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind]Contato contato)
         {
+
             if (id != contato.ContatoId)
             {
                 return NotFound();
+            }
+            if (contato.TelefoneCel is null)
+            {
+                contato.TelefoneCel = "";
             }
             if (ModelState.IsValid)
             {
